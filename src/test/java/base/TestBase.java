@@ -9,6 +9,7 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.*;
+/*import org.openqa.selenium.Dimension;*/
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -145,6 +146,9 @@ public abstract class TestBase {
 //			capabilities.setCapability("chrome.binary",System.getProperty("user.dir")+ File.separator +"drivers"+ File.separator +"chromedriver.exe");
 			capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 			driver = new ChromeDriver(capabilities);
+			Dimension d = new Dimension(1382,744); 
+			//Resize the current window to the given dimension
+			driver.manage().window().setSize(d); 
 			log.info(config.getProperty("browser")+" driver is initialized..");
 		}else if (config.getProperty("browser").equalsIgnoreCase("htmlunit")) {
 			// http://sourceforge.net/projects/htmlunit/files/htmlunit/
